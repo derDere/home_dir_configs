@@ -1,5 +1,8 @@
-(global-linum-mode t)
-(setq linum-format "%4d ")
+
+
+;(global-linum-mode t)
+;(setq linum-format "%4d ")
+;(setq linum-format (concat linum-format " "))
 
 ; start package.el with emacs
 (require 'package)
@@ -7,6 +10,23 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 ; initialize package.el
 (package-initialize)
+
+;; ; activate nlinum mode in start
+;; ;(global-nlinum-mode t)
+;; ;(setq nlinum-format "%4d ")
+;; ;(setq nlinum-format (concat nlinum-format " "))
+;; ; Preset `nlinum-format' for minimum width.
+;; ;(defun my:nlinum-mode-hook ()
+;; ;  (when nlinum-mode
+;; ;    (setq-local nlinum-format (concat " %" (number-to-string (ceiling (log (max 1 (/ (buffer-size) 80)) 10))) "d |"))
+;; ;  )
+;; ;)
+;; ;(add-hook 'nlinum-mode-hook 'my:nlinum-mode-hook)
+
+; starting git-gitter with emacs
+(global-git-gutter-mode)
+;(git-gutter:linum-setup)
+(git-gutter:start-update-timer)
 
 ; start auto-complete with emacs
 (require 'auto-complete)
@@ -94,7 +114,7 @@
  '(flymake-google-cpplint-command "/usr/local/bin/cpplint")
  '(package-selected-packages
    (quote
-    (flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete))))
+    (nlinum-hl hlinum nlinum diff-hl git-gutter flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
