@@ -15,10 +15,15 @@
 
 ====== Update Gcc
 
-  #sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-  #sudo apt-get update
-  #sudo apt-get install gcc-snapshot
-  #sudo apt-get install gcc-6 g++-6
-  #sudo apt-get install gcc-7 g++-7
-  #sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10
+  sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  sudo apt-get update
+  sudo apt-get install gcc-snapshot
+  sudo apt-get install gcc-6 g++-6
+  sudo apt-get install gcc-7 g++-7
+  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10
 
+====== Install Emacs 2.6
+
+  sudo add-apt-repository ppa:kelleyk/emacs
+  sudo apt-get update
+  sudo apt install emacs26-nox
