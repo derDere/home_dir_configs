@@ -1,3 +1,4 @@
+====== Emacs Packages
 
   auto-complete-c... 20150912.323  installed  An auto-complete source for C/C++ header files
   diff-hl            20181209.17   installed  Highlight uncommitted changes using VC
@@ -12,3 +13,9 @@
   nlinum-hl          20170614.48   installed  heal nlinum's line numbers
   yasnippet-snippets 20181107.2203 installed  Collection of yasnippet snippets
 
+====== Update Gcc
+
+  #sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  #sudo apt-get update
+  #sudo apt-get install gcc-snapshot
+  #sudo apt-get install gcc-6 g++-6
