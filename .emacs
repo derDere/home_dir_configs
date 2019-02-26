@@ -11,6 +11,7 @@
 ; initialize package.el
 (package-initialize)
 
+(desktop-save-mode 1)
 ; starting diff-hl-mode on startup
 
 ;  (require 'diff-hl)
