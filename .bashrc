@@ -123,7 +123,7 @@ function mp5 () {
 function ccppp() {
   printf "SRC = \$(wildcard *.cpp)\nAPP = \"$1\"\n\nAll: \$(APP)\n	@echo Making\n\n\$(APP): \$(SRC)\n	g++ -o \$(APP) \$(SRC) --std=c++11\n\ntest: \$(APP)\n	./\$(APP) debug\n" > ./makefile
   printf "#include <iostream>\n\n#define APP \"$1\"\n\nusing namespace std;\n\n/**\n * Project: $1\n * Creator: $USER\n * Creation Date: $(date)\n */\nint main(int argc, char* argv[]) {\n  cout << \"Neues Project: \" << APP << endl;\n  return 0;\n}\n" > ./main.cpp
-  emacs ./main.cpp makefile
+  emacs makefile ./main.cpp
 }
 
 function measure-speed() {
