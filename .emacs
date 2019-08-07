@@ -4,6 +4,9 @@
 ;(setq linum-format "%4d ")
 ;(setq linum-format (concat linum-format " "))
 
+;disables tilde files
+(setq create-lockfiles nil)
+
 ; start package.el with emacs
 (require 'package)
 ; add MELPA to repository list

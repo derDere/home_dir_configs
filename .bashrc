@@ -116,14 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-function mp5 () {
+
+function mp5() {
   mp-5 $*
 }
 
 function ccppp() {
-  printf "SRC = \$(wildcard *.cpp)\nAPP = \"$1\"\n\nAll: \$(APP)\n	@echo Making\n\n\$(APP): \$(SRC)\n	g++ -o \$(APP) \$(SRC) --std=c++11\n\ntest: \$(APP)\n	./\$(APP) debug\n" > ./makefile
-  printf "#include <iostream>\n\n#define APP \"$1\"\n\nusing namespace std;\n\n/**\n * Project: $1\n * Creator: $USER\n * Creation Date: $(date)\n */\nint main(int argc, char* argv[]) {\n  cout << \"Neues Project: \" << APP << endl;\n  return 0;\n}\n" > ./main.cpp
-  emacs makefile ./main.cpp
+  printf "SRC = \$(wildcard *.cpp)\nAPP = \"$1\"\n\nAll: \$(APP)\n      #Making\n\n\$(APP): \$(SRC)\n   g++ -o \$(APP) \$(SRC)\n\ntest: \$(APP)\n       ./\$(APP) debug\n" > ./makefile
+  printf "#include <iostream>\n\n#define APP \"$1\"\n\nusing namespace std;\n\n/**\n * Project: $1\n * Creator: $USER\n * Creation Date: $(date)\n */\nint main(int argc, char* argv[]) {\n cout << \"Neues Project: \" << APP << endl;\n return 0;\n}\n" > ./main.cpp
+  emacs ./main.cpp
 }
 
 function measure-speed() {
@@ -159,5 +160,8 @@ echo > /dev/null
 #PS1='
 #\[\e[42m\]\[\e[30m\]${debian_chroot:+($debian_chroot)} \u \[\e[32m\]\[\e[47m\] \[\e[37m\]\[\e[30m\]\h \[\e[37m\]\[\e[44m\] \w \[\e[0m\]\[\e[34m\]\[\e[0m\] '
 else
-PS1='\[\e[1;32m\]\[\e[40m\]${debian_chroot:+($debian_chroot)}\u\[\e[32m\]\[\e[40m\]@\[\e[1;34m\]\w\[\e[0m\]\[\e[37m\]$\[\e[0m\] '
+PS1='\[\e[1;32m\]\[\e[40m\]${debian_chroot:+($debian_chroot)}\u\[\e[32m\]\[\e[40m\]@\[\e[1;34m\]\w\[\e[40m\]\[\e[37m\]$\[\e[0m\]\[\e[30m\]\[\e[0m\]'
 fi
+
+
+
