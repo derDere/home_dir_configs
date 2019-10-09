@@ -1,11 +1,33 @@
+;;; package --- summary:
 
+;;; Commentary:
 
-;(global-linum-mode t)
-;(setq linum-format "%4d ")
-;(setq linum-format (concat linum-format " "))
+;;; Code:
 
-;disables tilde files
+; Maximise window in startup
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+; Create Treemacs Shurtcut
+(global-set-key (kbd "C-q") 'treemacs)
+(global-set-key (kbd "<f7>") 'treemacs)
+
+; Hide Toolbar Menubar and Tooltips
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(tooltip-mode 0)
+
+; show line numbers
+(global-linum-mode t)
+;   ;(setq linum-format "%4d ")
+;   ;(setq linum-format (concat linum-format " "))
+
+; How Current Line
+(global-hl-line-mode)
+
+; disables the creation of those extra files
 (setq create-lockfiles nil)
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
 
 ; start package.el with emacs
 (require 'package)
@@ -14,37 +36,65 @@
 ; initialize package.el
 (package-initialize)
 
-(desktop-save-mode 1)
+; opening Dashboard on startup
+(require 'dashboard)
+;; Set the title
+(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
+;; Set the banner
+(setq dashboard-startup-banner 2)
+;; Value can be
+;; 'official which displays the official emacs logo
+;; 'logo which displays an alternative emacs logo
+;; 1, 2 or 3 which displays one of the text banners
+;; "path/to/your/image.png" which displays whatever image you would prefer
+
+;; Content is not centered by default. To center, set
+(setq dashboard-center-content t)
+
+;; To disable shortcut "jump" indicators for each section, set
+(setq dashboard-show-shortcuts nil)
+; add icons to the widget headings and their items
+;(setq dashboard-set-heading-icons t)
+;(setq dashboard-set-file-icons t)
+
+(setq dashboard-set-navigator t)
+
+(dashboard-setup-startup-hook)
+
+
+; Save current session (got replaces by the startpage)
+;    ;(desktop-save-mode 1)
+
 ; starting diff-hl-mode on startup
+;   ;(require 'diff-hl)
+;   ;(setq diff-hl-side 'right)
+;   ;(setq diff-hl-margin-side 'right)
+;   ;(customize-set-variable 'diff-hl-side 'right)
+;   ;(global-diff-hl-mode)
+;   ;(defun my:init-diff-hl-mode()
+;   ;  (customize-set-variable 'diff-hl-margin-side 'right)
+;   ;  (diff-hl-margin-mode t)
+;   ;  (diff-hl-flydiff-mode t)
+;   ;)
+;   ;(add-hook 'c-mode-common-hook 'my:init-diff-hl-mode)
+;   ;(add-hook 'js-mode-hook 'my:init-diff-hl-mode)
 
-;  (require 'diff-hl)
-;  ;(setq diff-hl-side 'right)
-;  ;(setq diff-hl-margin-side 'right)
-;  (customize-set-variable 'diff-hl-side 'right)
-;  (global-diff-hl-mode)
-;  (defun my:init-diff-hl-mode()
-;    ; (customize-set-variable 'diff-hl-margin-side 'right)
-;    (diff-hl-margin-mode t)
-;    (diff-hl-flydiff-mode t)
-;    )
-;  (add-hook 'c-mode-common-hook 'my:init-diff-hl-mode)
+; activate nlinum mode in start
+;   ;(global-nlinum-mode t)
+;   ;(setq nlinum-format "%4d ")
+;   ;(setq nlinum-format (concat nlinum-format " "))
+;   ; Preset `nlinum-format' for minimum width.
+;   ;; (defun my:nlinum-mode-hook ()
+;   ;;   (when nlinum-mode
+;   ;;     (setq-local nlinum-format (concat " %" (number-to-string (ceiling (log (max 1 (/ (buffer-size) 80)) 10))) "d\u2502 "))
+;   ;;   )
+;   ;; )
+;   ;; (add-hook 'nlinum-mode-hook 'my:nlinum-mode-hook)
 
-;  ; activate nlinum mode in start
-;  (global-nlinum-mode t)
-;  (setq nlinum-format "%4d ")
-;  ;(setq nlinum-format (concat nlinum-format " "))
-;  ; Preset `nlinum-format' for minimum width.
-;  ;; (defun my:nlinum-mode-hook ()
-;  ;;   (when nlinum-mode
-;  ;;     (setq-local nlinum-format (concat " %" (number-to-string (ceiling (log (max 1 (/ (buffer-size) 80)) 10))) "d\u2502 "))
-;  ;;   )
-;  ;; )
-;  ;; (add-hook 'nlinum-mode-hook 'my:nlinum-mode-hook)
-
-; starting git-gitter with emacs
-;(global-git-gutter-mode)
-;(git-gutter:linum-setup)
-;(git-gutter:start-update-timer)
+; starting git-gutter with emacs
+;   ;(global-git-gutter-mode)
+;   ;(git-gutter:linum-setup)
+;   ;(git-gutter:start-update-timer)
 
 ; start auto-complete with emacs
 (require 'auto-complete)
@@ -131,11 +181,15 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-enabled-themes (quote (wombat)))
+ '(diff-hl-side (quote right))
  '(flymake-google-cpplint-command "/usr/local/bin/cpplint")
+ '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (nlinum diff-hl git-gutter flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete))))
+    (treemacs treemacs-magit dashboard magit hlinum diff-hl git-gutter flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
+ '(scroll-bar-mode nil)
+ '(tooltip-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
