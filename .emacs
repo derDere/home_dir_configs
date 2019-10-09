@@ -13,9 +13,9 @@
 
 ; Hide Toolbar Menubar and Tooltips
 (if (display-graphic-p)
-  (tooltip-mode 0)
+    (tool-bar-mode 0)
 )
-(tool-bar-mode 0)
+(tooltip-mode 0)
 (menu-bar-mode 0)
 
 ; show line numbers
