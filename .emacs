@@ -1,4 +1,21 @@
 ;;; package --- summary:
+;  all-the-icons      20190320.1809 installed             A library for inserting Developer icons
+;  all-the-icons-d... 20170418.2131 installed             Shows icons for each file in dired mode
+;  auto-complete      20170125.245  installed             Auto Completion for GNU Emacs
+;  auto-complete-c... 20150912.323  installed             An auto-complete source for C/C++ header files
+;  dashboard          20190721.504  installed             A startup screen extracted from Spacemacs
+;  flycheck           20190213.1525 installed             On-the-fly syntax checking
+;  flymake-cursor     20120322.1757 installed             Show flymake messages in the minibuffer after delay
+;  flymake-google-... 20140205.1325 installed             Help to comply with the Google C++ Style Guide
+;  google-c-style     20180130.1736 installed             Google's C/C++ style for c-mode
+;  hlinum             20180422.412  installed             Extension for linum.el to highlight current line number
+;  iedit              20181114.950  installed             Edit multiple regions in the same way simultaneously.
+;  magit              20191008.727  installed             A Git porcelain inside Emacs.
+;  neotree            20181121.2026 installed             A tree plugin like NerdTree for Vim
+;  treemacs           20191008.1937 installed             A tree style file explorer package
+;  treemacs-magit     20190731.540  installed             Magit integration for treemacs
+;  yasnippet          20181015.1212 installed             Yet another snippet extension for Emacs.
+;  yasnippet-snippets 20191009.625  installed             Collection of yasnippet snippets
 
 ;;; Commentary:
 
@@ -6,10 +23,6 @@
 
 ; Maximise window in startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-; Create Treemacs Shurtcut
-(global-set-key (kbd "C-q") 'treemacs)
-(global-set-key (kbd "<f7>") 'treemacs)
 
 ; Hide Toolbar Menubar and Tooltips
 (if (display-graphic-p)
@@ -22,9 +35,6 @@
 (global-linum-mode t)
 ;   ;(setq linum-format "%4d ")
 ;   ;(setq linum-format (concat linum-format " "))
-
-; How Current Line
-(global-hl-line-mode)
 
 ; disables the creation of those extra files
 (setq create-lockfiles nil)
@@ -45,15 +55,25 @@
 ;	     :hook (dired-mode . all-the-icons-dired-mode))
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
+; show Current Line
+(require 'hlinum)
+(hlinum-activate)
+
+; treemacs
+(require 'treemacs)
+; Create Treemacs Shurtcut
+(global-set-key (kbd "C-q") 'treemacs)
+(global-set-key (kbd "<f7>") 'treemacs)
 ; set iconsize for treemacs
 (defvar treemacs--icon-size 16)
+(treemacs-resize-icons 16)
 
 ; opening Dashboard on startup
 (require 'dashboard)
 ;; Set the title
 (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
 ;; Set the banner
-(setq dashboard-startup-banner 'logo)
+(setq dashboard-startup-banner 'official)
 ;; Value can be
 ;; 'official which displays the official emacs logo
 ;; 'logo which displays an alternative emacs logo
@@ -61,7 +81,7 @@
 ;; "path/to/your/image.png" which displays whatever image you would prefer
 
 ;; Content is not centered by default. To center, set
-(setq dashboard-center-content t)
+;(setq dashboard-center-content t)
 
 ;; To disable shortcut "jump" indicators for each section, set
 (setq dashboard-show-shortcuts nil)
@@ -69,7 +89,7 @@
 (setq dashboard-set-heading-icons t)
 (setq dashboard-set-file-icons t)
 
-(setq dashboard-set-navigator t)
+;(setq dashboard-set-navigator t)
 
 (dashboard-setup-startup-hook)
 
@@ -199,7 +219,7 @@
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (all-the-icons all-the-icons-dired all-the-icons-gnus treemacs treemacs-magit dashboard magit hlinum diff-hl git-gutter flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
+    (all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
