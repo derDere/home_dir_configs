@@ -38,6 +38,16 @@
 ; initialize package.el
 (package-initialize)
 
+; use font-lock and inherit icons into dired mode
+(require 'font-lock)
+;(use-package all-the-icons)
+;(use-package all-the-icons-dred
+;	     :hook (dired-mode . all-the-icons-dired-mode))
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+; set iconsize for treemacs
+(defvar treemacs--icon-size 16)
+
 ; opening Dashboard on startup
 (require 'dashboard)
 ;; Set the title
