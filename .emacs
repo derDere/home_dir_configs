@@ -50,6 +50,8 @@
 
 ; use font-lock and inherit icons into dired mode
 (require 'font-lock)
+(require 'all-the-icons)
+(setq inhibit-compacting-font-caches t)
 ;(use-package all-the-icons)
 ;(use-package all-the-icons-dred
 ;	     :hook (dired-mode . all-the-icons-dired-mode))
