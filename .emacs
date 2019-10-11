@@ -43,7 +43,7 @@
 ;; Set the title
 (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
 ;; Set the banner
-(setq dashboard-startup-banner 2)
+(setq dashboard-startup-banner 'logo)
 ;; Value can be
 ;; 'official which displays the official emacs logo
 ;; 'logo which displays an alternative emacs logo
@@ -56,8 +56,8 @@
 ;; To disable shortcut "jump" indicators for each section, set
 (setq dashboard-show-shortcuts nil)
 ; add icons to the widget headings and their items
-;(setq dashboard-set-heading-icons t)
-;(setq dashboard-set-file-icons t)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
 
 (setq dashboard-set-navigator t)
 
@@ -189,7 +189,7 @@
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (treemacs treemacs-magit dashboard magit hlinum diff-hl git-gutter flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
+    (all-the-icons all-the-icons-dired all-the-icons-gnus treemacs treemacs-magit dashboard magit hlinum diff-hl git-gutter flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
