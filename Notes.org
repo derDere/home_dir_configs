@@ -69,3 +69,4 @@
 ** zangband
 ** nethack-console
 ** https://github.com/samtay/tetris
+** rofi (app starter similar to dmenu)
