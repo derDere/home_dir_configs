@@ -200,8 +200,9 @@
 
 
 
-
-
+; Activates org-bullets-mode at org-mode
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 
 
@@ -221,7 +222,7 @@
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
+    (org-bullets all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
