@@ -130,3 +130,6 @@
      set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
      set laststatus=2
      #+END_SRC
+
+* VIM
+  Cheat Sheet: [[https://docs.google.com/spreadsheets/d/1eV6vpcg_07ZW1gT5ApE9i5pewzOFvwO15fM7_ve-iZw/edit?usp=sharing]]
