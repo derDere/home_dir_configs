@@ -1,72 +1,132 @@
 
-
+#      _   _       _              
+#     | \ | |     | |           _ 
+#     |  \| | ___ | |_ ___  ___(_)
+#     | . ` |/ _ \| __/ _ \/ __|  
+#     | |\  | (_) | ||  __/\__ \_ 
+#     \_| \_/\___/ \__\___||___(_)
+#
+#   ================================
+#
 
 * Emacs Packages
-** auto-complete-c... 20150912.323  installed  An auto-complete source for C/C++ header files
-** diff-hl            20181209.17   installed  Highlight uncommitted changes using VC
-** flycheck           20181127.1510 installed  On-the-fly syntax checking
-** flymake-cursor     20120322.1757 installed  Show flymake messages in the minibuffer after delay
-** flymake-google-... 20140205.1325 installed  Help to comply with the Google C++ Style Guide
-** git-gutter         20161105.1356 installed  Port of Sublime Text plugin GitGutter
-** google-c-style     20180130.1736 installed  Google's C/C++ style for c-mode
-** hlinum             20180422.412  installed  Extension for linum.el to highlight current line number
-** iedit              20181114.950  installed  Edit multiple regions in the same way simultaneously.
-** neotree            20181121.2026 installed  A tree plugin like NerdTree for Vim
-** nlinum-hl          20170614.48   installed  heal nlinum's line numbers
-** yasnippet-snippets 20181107.2203 installed  Collection of yasnippet snippets
+  - auto-complete-c... 20150912.323  installed  An auto-complete source for C/C++ header files
+  - diff-hl            20181209.17   installed  Highlight uncommitted changes using VC
+  - flycheck           20181127.1510 installed  On-the-fly syntax checking
+  - flymake-cursor     20120322.1757 installed  Show flymake messages in the minibuffer after delay
+  - flymake-google-... 20140205.1325 installed  Help to comply with the Google C++ Style Guide
+  - git-gutter         20161105.1356 installed  Port of Sublime Text plugin GitGutter
+  - google-c-style     20180130.1736 installed  Google's C/C++ style for c-mode
+  - hlinum             20180422.412  installed  Extension for linum.el to highlight current line number
+  - iedit              20181114.950  installed  Edit multiple regions in the same way simultaneously.
+  - neotree            20181121.2026 installed  A tree plugin like NerdTree for Vim
+  - nlinum-hl          20170614.48   installed  heal nlinum's line numbers
+  - yasnippet-snippets 20181107.2203 installed  Collection of yasnippet snippets
 
 * Update Gcc
-** sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-** sudo apt-get update
-** sudo apt-get install gcc-snapshot
-** sudo apt-get install gcc-6 g++-6
-** sudo apt-get install gcc-7 g++-7
-** sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10
-
+  #+BEGIN_SRC sh
+  sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  sudo apt-get update
+  sudo apt-get install gcc-snapshot
+  sudo apt-get install gcc-6 g++-6
+  sudo apt-get install gcc-7 g++-7
+  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 10
+  #+END_SRC
+  
 * Install Emacs 2.6
-** sudo add-apt-repository ppa:kelleyk/emacs
-** sudo apt-get update
-** sudo apt install emacs26-nox
+  #+BEGIN_SRC sh
+  sudo add-apt-repository ppa:kelleyk/emacs
+  sudo apt-get update
+  sudo apt install emacs26-nox
+  #+END_SRC
 
 * Install i3
-** sudo apt install i3
+  #+BEGIN_SRC sh
+  sudo apt install i3
+  #+END_SRC
 
 * Install i3-gaps on Ubuntu
-** sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev libtool 
+  #+BEGIN_SRC sh
+  sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev libtool 
+  #+END_SRC
 
-** git clone https://github.com/Airblader/xcb-util-xrm
-** cd xcb-util-xrm
-** git submodule update --init
-** ./autogen.sh --prefix=/usr
-** make
-** sudo make install
+  #+BEGIN_SRC sh
+  git clone https://github.com/Airblader/xcb-util-xrm
+  cd xcb-util-xrm
+  git submodule update --init
+  ./autogen.sh --prefix=/usr
+  make
+  sudo make install
+  #+END_SRC
 
-** git clone https://www.github.com/Airblader/i3 i3-gaps
-** cd i3-gaps
-** git checkout gaps && git pull
-** autoreconf --force --install
-** rm -rf build
-** mkdir build
-** cd build
-** ../configure --prefix=/usr --sysconfdir=/etc
-** make
-** sudo make install
+  #+BEGIN_SRC sh
+  git clone https://www.github.com/Airblader/i3 i3-gaps
+  cd i3-gaps
+  git checkout gaps && git pull
+  autoreconf --force --install
+  rm -rf build
+  mkdir build
+  cd build
+  ../configure --prefix=/usr --sysconfdir=/etc
+  make
+  sudo make install
+  #+END_SRC
 
 * Cool Software / Games
-** cowsay
-** lolcat
-** opencubicplayer
-** cmatrix
-** nsnake
-** screenfetch
-** nudoku
-** 2048-cli
-** https://myman.sourceforge.io/
-** greed
-** pacman4console
-** moon-buggy
-** ninvaders
-** zangband
-** nethack-console
-** https://github.com/samtay/tetris
-** rofi (app starter similar to dmenu)
+  - cowsay
+  - lolcat
+  - opencubicplayer
+  - cmatrix
+  - nsnake
+  - screenfetch
+  - nudoku
+  - 2048-cli
+  - [[https://myman.sourceforge.io/]]
+  - greed
+  - pacman4console
+  - moon-buggy
+  - ninvaders
+  - zangband
+  - nethack-console
+  - [[https://github.com/samtay/tetris]]
+  - rofi (app starter similar to dmenu)
+
+* Install Powerline
+  Source: [[https://devpro.media/install-powerline-ubuntu/#]]
+  1. Install Powerline Fonts
+     #+BEGIN_SRC sh
+     git clone https://github.com/powerline/fonts.git --depth=1 fonts
+     ./fonts/install.sh
+     #+END_SRC
+  2. Change Terminal Font to Powerline Font
+  3. Install pip and powerline
+     1. Pip
+	#+BEGIN_SRC sh
+	curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+	python get-pip.py --user
+	rm get-pip.py
+        #+END_SRC
+     2. Powerline
+	#+BEGIN_SRC sh
+	$HOME/.local/bin/pip install --user powerline-status
+	#+END_SRC
+  4. Configure Bash:
+     Add at end of ~/.bashrc
+     #+BEGIN_SRC sh
+     # Add this to your PATH if it’s not already declared
+     export PATH=$PATH:$HOME/.local/bin
+
+     # Powerline configuration
+     if [ -f $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+         $HOME/.local/bin/powerline-daemon -q
+	 POWERLINE_BASH_CONTINUATION=1
+	 POWERLINE_BASH_SELECT=1
+	 source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+     fi
+     #+END_SRC
+  5. Configure Vim:
+     Add into ~/.vimrc
+     #+BEGIN_SRC sh
+     set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+     set laststatus=2
+     #+END_SRC

@@ -155,13 +155,23 @@ function measure-speed() {
 #    46: Cyan background
 #    47: White background
 
-if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
-echo > /dev/null
+#if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
+#echo > /dev/null
 #PS1='
 #\[\e[42m\]\[\e[30m\]${debian_chroot:+($debian_chroot)} \u \[\e[32m\]\[\e[47m\] \[\e[37m\]\[\e[30m\]\h \[\e[37m\]\[\e[44m\] \w \[\e[0m\]\[\e[34m\]\[\e[0m\] '
-else
-PS1='\[\e[1;32m\]\[\e[40m\]${debian_chroot:+($debian_chroot)}\u\[\e[32m\]\[\e[40m\]@\[\e[1;34m\]\w\[\e[40m\]\[\e[37m\]$\[\e[0m\]\[\e[30m\]\[\e[0m\]'
+#else
+#PS1='\[\e[1;32m\]\[\e[40m\]${debian_chroot:+($debian_chroot)}\u\[\e[32m\]\[\e[40m\]@\[\e[1;34m\]\w\[\e[40m\]\[\e[37m\]$\[\e[0m\]\[\e[30m\]\[\e[0m\]'
+#fi
+
+
+
+# Add this to your PATH if it’s not already declared
+export PATH=$PATH:$HOME/.local/bin
+
+# Powerline configuration
+if [ -f $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+    $HOME/.local/bin/powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
-
-
-
