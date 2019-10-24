@@ -132,4 +132,12 @@
      #+END_SRC
 
 * VIM
-  Cheat Sheet: [[https://docs.google.com/spreadsheets/d/1eV6vpcg_07ZW1gT5ApE9i5pewzOFvwO15fM7_ve-iZw/edit?usp=sharing]]
+** Cheat Sheet:
+   [[https://docs.google.com/spreadsheets/d/1eV6vpcg_07ZW1gT5ApE9i5pewzOFvwO15fM7_ve-iZw/edit?usp=sharing]]
+** Install Vundle: 
+   1. Install Vundle Plugin
+      #+BEGIN_SRC sh
+      git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+      #+END_SRC
+   2. Use .vimrc from home_dir_configs
+   3. Start vim and run :PluginInstall
