@@ -1,0 +1,116 @@
+* Outliner
+Text text text!
+you can collapse and expand the outliner with the <TAB> key
+
+** more items
+   M-<Enter> to add another item
+   M-SHIFT-<Enter> to add an advanced item (todo, checkbox)
+** yet more
+   M-<Up,Down> to reorder them
+*** and
+**** so
+***** on
+****** ...
+
+* Markup
+*BOLD*, /italic/, =verbatim=, +strikethrough+, _underlined_
+
+- bulleted
+- list
+- items
+
+- [ ] also
+- [X] with
+- [ ] checkboxes
+
+
+Add Link with C-c C-l
+[[http://google.de/][Google]]
+Open Link with C-c C-o
+
+* Code Blocks
+you can create code blocks using < s <TAB> followed by the code language and some options.
+in this case the options define that the result of this code will be its output.
+
+you can edit the block of code in the native language using C-c ' while inside the block.
+
+you can evaluate the code block by pressing C-c C-c wile the cursor is on it.
+this vill result in a Result block.
+
+#+BEGIN_SRC python :results output
+def fact(n):
+  if n == 0:
+    return 1
+  else:
+    return n * fact(n - 1)
+
+print("The factor of 5 is %i" % fact(5))
+#+END_SRC
+
+#+RESULTS:
+: The factor of 5 is 120
+
+* Tables
+
+Enter Table Colum names starting ending and beeing sepperated with pipes.
+#+BEGIN_SRC org
+| this | is | an | example|
+#+END_SRC
+
+in a ne line write |- and press TAB.
+
+#+BEGIN_SRC org
+| this | is | an | example|
+|- <TAB>
+#+END_SRC
+
+this will result in a new row.
+
+#+BEGIN_SRC org
+| this | is | an | example |
+|------+----+----+---------|
+|      |    |    |         |
+#+END_SRC
+
+you can now iterate through the cells via TAB and even create new cells.
+you can also reorder rows and columns with M-<Up,Down,Left,Right>
+
+| Some | Data           | Test 3 |
+|------+----------------+--------|
+|   12 | buckle my shoe | this   |
+|    ? | ?              | is     |
+|   34 | shut the door  | nice   |
+
+* Export to other formats
+you can export you Org file into many different formats using the shortcut
+C-c C-e
+
+You can define meta data for a file export using #+DATA_KEY for example:
+
+#+TITLE: Example Org File with Explanation
+#+AUTHOR: deremer
+#+DATE: 25.10.2019
+#+EMAIL: deremer@orbitlog.com
+#+LANGUAGE: de
+#+OPTIONS: tex:t
+
+* LaTeX integration
+
+- Characters: \alpha \rightarrow \beta
+- $O(n \log n)$
+
+\begin{align*}
+3 * 2 + = 6 + 1 \\
+= 7
+\end{algin*}
+
+
+* To Do Lists
+** TODO make an todo example
+** DONE cycle through states using  C-c C-t
+   CLOSED: [2019-10-25 Fr 15:48]
+** TODO add dead line to TODO item using C-c C-d
+   DEADLINE: <2019-10-31 Do>
+** TODO change org-date using SHIFT-<Up,Down,Left,Right>
+** TODO look at todo agenda to find out mor about todo lists using C-c a
+** TODO attach a file using C-c C-a
