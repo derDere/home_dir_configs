@@ -64,6 +64,12 @@
 
 
 
+; activate powerline
+(require 'powerline)
+(powerline-default-theme)
+
+
+
 ; use font-lock and inherit icons into dired mode
 (require 'font-lock)
 (require 'all-the-icons)
@@ -243,7 +249,7 @@
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (ac-php ac-math htmlize org-bullets all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
+    (powerline ac-php ac-math htmlize org-bullets all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
