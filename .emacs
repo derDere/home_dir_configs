@@ -17,12 +17,20 @@
 ;  yasnippet          20181015.1212 installed             Yet another snippet extension for Emacs.
 ;  yasnippet-snippets 20191009.625  installed             Collection of yasnippet snippets
 
+
+
 ;;; Commentary:
+
+
 
 ;;; Code:
 
+
+
 ; Maximise window in startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+
 
 ; Hide Toolbar Menubar and Tooltips
 (if (display-graphic-p)
@@ -31,15 +39,21 @@
 (tooltip-mode 0)
 (menu-bar-mode 0)
 
+
+
 ; show line numbers
 (global-linum-mode t)
 ;   ;(setq linum-format "%4d ")
 ;   ;(setq linum-format (concat linum-format " "))
 
+
+
 ; disables the creation of those extra files
 (setq create-lockfiles nil)
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
+
+
 
 ; start package.el with emacs
 (require 'package)
@@ -47,6 +61,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 ; initialize package.el
 (package-initialize)
+
+
 
 ; use font-lock and inherit icons into dired mode
 (require 'font-lock)
@@ -57,9 +73,13 @@
 ;	     :hook (dired-mode . all-the-icons-dired-mode))
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
+
+
 ; show Current Line
 (require 'hlinum)
 (hlinum-activate)
+
+
 
 ; treemacs
 (require 'treemacs)
@@ -69,6 +89,8 @@
 ; set iconsize for treemacs
 (defvar treemacs--icon-size 16)
 (treemacs-resize-icons 16)
+
+
 
 ; opening Dashboard on startup
 (require 'dashboard)
@@ -96,39 +118,6 @@
 (dashboard-setup-startup-hook)
 
 
-; Save current session (got replaces by the startpage)
-;    ;(desktop-save-mode 1)
-
-; starting diff-hl-mode on startup
-;   ;(require 'diff-hl)
-;   ;(setq diff-hl-side 'right)
-;   ;(setq diff-hl-margin-side 'right)
-;   ;(customize-set-variable 'diff-hl-side 'right)
-;   ;(global-diff-hl-mode)
-;   ;(defun my:init-diff-hl-mode()
-;   ;  (customize-set-variable 'diff-hl-margin-side 'right)
-;   ;  (diff-hl-margin-mode t)
-;   ;  (diff-hl-flydiff-mode t)
-;   ;)
-;   ;(add-hook 'c-mode-common-hook 'my:init-diff-hl-mode)
-;   ;(add-hook 'js-mode-hook 'my:init-diff-hl-mode)
-
-; activate nlinum mode in start
-;   ;(global-nlinum-mode t)
-;   ;(setq nlinum-format "%4d ")
-;   ;(setq nlinum-format (concat nlinum-format " "))
-;   ; Preset `nlinum-format' for minimum width.
-;   ;; (defun my:nlinum-mode-hook ()
-;   ;;   (when nlinum-mode
-;   ;;     (setq-local nlinum-format (concat " %" (number-to-string (ceiling (log (max 1 (/ (buffer-size) 80)) 10))) "d\u2502 "))
-;   ;;   )
-;   ;; )
-;   ;; (add-hook 'nlinum-mode-hook 'my:nlinum-mode-hook)
-
-; starting git-gutter with emacs
-;   ;(global-git-gutter-mode)
-;   ;(git-gutter:linum-setup)
-;   ;(git-gutter:start-update-timer)
 
 ; start auto-complete with emacs
 (require 'auto-complete)
@@ -136,9 +125,7 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
-; start yasnipped with emacs
-(require 'yasnippet)
-(yas-global-mode 1)
+
 
 ; a function that initializes auto-complete-c-headers and gets caller dor c/c++ hooks
 (defun my:ac-c-header-init ()
@@ -158,6 +145,14 @@
 ;; (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 ;; (add-hook 'c-mode-hook 'my:ac-c-header-init)
 
+
+
+; start yasnipped with emacs
+(require 'yasnippet)
+(yas-global-mode 1)
+
+
+
 ; fix iedit keybinding for german keyboards
 (define-key global-map (kbd "C-c ;") 'iedit-mode)
 
@@ -173,6 +168,8 @@
 
 (global-flycheck-mode)
 
+
+
 ;; ; show neotree on startup
 ;; (defun my:show-neo-tree-on-c-modes()
 ;;   (interactive)
@@ -182,13 +179,19 @@
 ;; (add-hook 'after-init-hook 'my:show-neo-tree-on-c-modes)
 (global-set-key [f8] 'neotree-toggle)
 
+
+
 ;; ; start google-c-style with emacs
 ;; (require 'google-c-style)
 ;; (add-hook 'c-mode-common-hook 'google-c-style)
 ;; (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
+
+
 ; turn on semantic mode
 (semantic-mode 1)
+
+
 
 ; add semantic to suggestion backend to auto complete and hock it to c-mode-common
 (defun my:add-semantic-to-autocomplete()
@@ -203,6 +206,24 @@
 ; Activates org-bullets-mode at org-mode
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+
+
+;; active Babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (js . t)
+   (shell . t)
+   (emacs-lisp . nil)))
+
+
+; activate auto closed date creation on done todo
+(setq org-log-done 'time)
+
+
+; org agenda key map
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 
 
@@ -222,7 +243,7 @@
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (org-bullets all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
+    (ac-php ac-math htmlize org-bullets all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
