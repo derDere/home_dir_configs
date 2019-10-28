@@ -104,6 +104,8 @@
 (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
 ;; Set the banner
 (setq dashboard-startup-banner 'official)
+;(setq recentf-exclude (org-agenda-files)) ;Doesn'T Work!!!!!!
+(setq recentf-exclude '("~/.emacs.d/*"))
 ;; Value can be
 ;; 'official which displays the official emacs logo
 ;; 'logo which displays an alternative emacs logo
@@ -206,14 +208,12 @@
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
 ;(add-hook 'c-mode-hook 'my:add-semantic-to-autocomplete)
 ;(add-hook 'c++-mode-hook 'my:add-semantic-to-autocomplete)
-
+(add-to-list 'ac-modes 'org-mode)
 
 
 ; Activates org-bullets-mode at org-mode
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
-
 
 ;; active Babel languages
 (org-babel-do-load-languages
@@ -223,13 +223,68 @@
    (shell . t)
    (emacs-lisp . nil)))
 
-
 ; activate auto closed date creation on done todo
 (setq org-log-done 'time)
 
-
 ; org agenda key map
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+; finding Org Folder
+(defvar ORG_DIR (getenv "ORG"))
+
+; setting org default notes file
+(setq org-default-notes-file (concat ORG_DIR "/ToDos.org"))
+
+; add agenda files
+(setq org-agenda-files (list "~/Documents/Notes.org"
+			     (concat ORG_DIR "/ToDos.org")))
+
+; setting org archive location
+(setq org-archive-location (concat ORG_DIR
+				   "/Done/Done_"
+                                   (format-time-string "%Y" (current-time))
+                                   ".org_archive::"))
+; extending TODO states
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+
+; force utf-8 for org-exports
+(setq org-export-coding-system 'utf-8)
+
+; org captures
+;   org captures key map
+(define-key global-map "\C-cc" 'org-capture)
+;   org capture templates
+(setq org-capture-templates
+      '(("t"              ;hotkey
+	"Todo list item" ; name
+	entry            ;type
+	; heading tyoe and title
+	(file+headline org-default-notes-file "Uncategorized")
+	"* TODO %?\n  %i\n  Source: %a") ; template
+	))
+
+
+; prettyfy org mode
+(add-hook 'org-mode-hook (lambda ()
+   "Beautify Org Checkbox Symbol"
+   (push '("[ ]" .  "☐") prettify-symbols-alist)
+   (push '("[X]" . "☑" ) prettify-symbols-alist)
+   (push '("[-]" . "❍" ) prettify-symbols-alist)
+   (push '("#+BEGIN_SRC" . "λ" ) prettify-symbols-alist)
+   (push '("#+END_SRC" . "λ" ) prettify-symbols-alist)
+   (push '("#+RESULTS:" . "ƒ" ) prettify-symbols-alist)
+   ;(push '("#+BEGIN_SRC" . "┌── λ : " ) prettify-symbols-alist)
+   ;(push '("#+END_SRC" . "└── λ ────────────" ) prettify-symbols-alist)
+   ;(push '("-----" . "────────────") prettify-symbols-alist)
+   ;(push '("#+RESULTS:" . "#=RESULT:" ) prettify-symbols-alist)
+   (prettify-symbols-mode)))
+
+
+
+
+
+
 
 
 
