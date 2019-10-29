@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Emacs
+Comment=emacs exwm window manager
+Exec=emacs
+TryExec=emacs
+Type=Application
+X-LightDM-DesktopName=emacs
+DesktopNames=emacs
+Keywords=tiling;wm;windowmanager;window;manager;

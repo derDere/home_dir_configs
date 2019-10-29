@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=tmux
+Comment=tmux tiling manager running in urxvt
+Exec=st -g=548x72 -e 2s-tmux-wm
+TryExec=st
+Type=Application
+X-LightDM-DesktopName=st
+DesktopNames=st
+Keywords=tiling;wm;windowmanager;window;manager;
