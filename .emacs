@@ -17,6 +17,17 @@
 ;  yasnippet          20181015.1212 installed             Yet another snippet extension for Emacs.
 ;  yasnippet-snippets 20191009.625  installed             Collection of yasnippet snippets
 
+;   #+BEGIN_SRC emacs-lisp
+;     (defun list-packages-and-versions ()
+;       "Returns a list of all installed packages and their versions"
+;       (mapcar
+;	(lambda (pkg)
+;	  `(,pkg ,(package-desc-version
+;		     (cadr (assq pkg package-alist)))))
+;	package-activated-list))
+;
+;	(list-packages-and-versions)
+;   #+END_SRC
 
 
 ;;; Commentary:
@@ -221,7 +232,7 @@
  '((python . t)
    (js . t)
    (shell . t)
-   (emacs-lisp . nil)))
+   (emacs-lisp . t)))
 
 ; activate auto closed date creation on done todo
 (setq org-log-done 'time)
