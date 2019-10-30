@@ -247,7 +247,10 @@
 (setq org-default-notes-file (concat ORG_DIR "/ToDos.org"))
 
 ; add agenda files
-(setq org-agenda-files (list "~/Documents/Notes.org"
+(defvar NOTES_LOCATION "F:/Users/Phillip/Documents/Notes.org")
+(if (not (file-exists-p NOTES_LOCATION))
+    (setq NOTES_LOCATION "~/Documents/Notes.org"))
+(setq org-agenda-files (list NOTES_LOCATION
 			     (concat ORG_DIR "/ToDos.org")))
 
 ; setting org archive location
