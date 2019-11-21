@@ -90,6 +90,8 @@
   - nethack-console
   - [[https://github.com/samtay/tetris]]
   - rofi (app starter similar to dmenu)
+  - [[https://github.com/cosmos72/twin][twin]] (Text based Window Manager)
+  - [[http://vwm.sourceforge.net/][VWM]] (Text based Window Manager)
 
 * Install Powerline
   Source: [[https://devpro.media/install-powerline-ubuntu/#]]
