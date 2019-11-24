@@ -92,6 +92,7 @@
   - rofi (app starter similar to dmenu)
   - [[https://github.com/cosmos72/twin][twin]] (Text based Window Manager)
   - [[http://vwm.sourceforge.net/][VWM]] (Text based Window Manager)
+  - wicd-curses (wifi manager)
 
 * Install Powerline
   Source: [[https://devpro.media/install-powerline-ubuntu/#]]
