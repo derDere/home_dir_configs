@@ -92,6 +92,9 @@
   - rofi (app starter similar to dmenu)
   - [[https://github.com/visit1985/mdp][mdp (markdown presentations)]]
   - [[https://unix.stackexchange.com/questions/4140/markdown-viewer/118897][Different MarkDown Viewers]]
+  - [[https://github.com/cosmos72/twin][twin]] (Text based Window Manager)
+  - [[http://vwm.sourceforge.net/][VWM]] (Text based Window Manager)
+  - wicd-curses (wifi manager)
 
 * Install Powerline
   Source: [[https://devpro.media/install-powerline-ubuntu/#]]
