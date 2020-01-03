@@ -90,6 +90,8 @@
   - nethack-console
   - [[https://github.com/samtay/tetris]]
   - rofi (app starter similar to dmenu)
+  - [[https://github.com/visit1985/mdp][mdp (markdown presentations)]]
+  - [[https://unix.stackexchange.com/questions/4140/markdown-viewer/118897][Different MarkDown Viewers]]
 
 * Install Powerline
   Source: [[https://devpro.media/install-powerline-ubuntu/#]]
@@ -141,3 +143,11 @@
       #+END_SRC
    2. Use .vimrc from home_dir_configs
    3. Start vim and run :PluginInstall
+
+* Tmux
+** Add Screen Saver
+  #+BEGIN_SRC shell
+  tmux set -g lock-after-time 300
+  tmux set -g lock-command "/usr/bin/cmatrix -bx -C blue"
+  #+END_SRC
+  [[https://askubuntu.com/questions/699579/ascii-screensaver-for-the-command-line-or-a-tui][Terminal Screensavers...]]

@@ -175,3 +175,10 @@ if [ -f $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerli
     POWERLINE_BASH_SELECT=1
     source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
+
+
+
+# remove ls background colors
+eval "$(dircolors -p | \
+    sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
+    dircolors /dev/stdin)"
