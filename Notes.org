@@ -96,6 +96,7 @@
   - [[http://vwm.sourceforge.net/][VWM]] (Text based Window Manager)
   - wicd-curses (wifi manager)
   - [[http://mewbies.com/acute_terminal_fun_06_amusements_and_games_on_the_terminal.htm#bsdgames][bsdgames]]
+  - curl http://wttr.in/leverkusen
 
 * Install Powerline
   Source: [[https://devpro.media/install-powerline-ubuntu/#]]
