@@ -95,6 +95,7 @@
   - [[https://github.com/cosmos72/twin][twin]] (Text based Window Manager)
   - [[http://vwm.sourceforge.net/][VWM]] (Text based Window Manager)
   - wicd-curses (wifi manager)
+  - [[http://mewbies.com/acute_terminal_fun_06_amusements_and_games_on_the_terminal.htm#bsdgames][bsdgames]]
 
 * Install Powerline
   Source: [[https://devpro.media/install-powerline-ubuntu/#]]
@@ -154,3 +155,4 @@
   tmux set -g lock-command "/usr/bin/cmatrix -bx -C blue"
   #+END_SRC
   [[https://askubuntu.com/questions/699579/ascii-screensaver-for-the-command-line-or-a-tui][Terminal Screensavers...]]
+  [[https://gitlab.com/jallbrit/bonsai.sh][Bonsai screensaver...]]
