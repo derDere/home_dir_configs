@@ -97,6 +97,7 @@
   - wicd-curses (wifi manager)
   - [[http://mewbies.com/acute_terminal_fun_06_amusements_and_games_on_the_terminal.htm#bsdgames][bsdgames]]
   - curl http://wttr.in/leverkusen
+  - [[https://linuxundich.de/gnu-linux/audio-visualizer-terminal-cli-visualizer/][cli-visualizer (vis)]]
 
 * Install Powerline
   Source: [[https://devpro.media/install-powerline-ubuntu/#]]
