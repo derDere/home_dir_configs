@@ -1,4 +1,4 @@
-;;; package --- summary:
+; package --- summary:
 ;  all-the-icons      20190320.1809 installed             A library for inserting Developer icons
 ;  all-the-icons-d... 20170418.2131 installed             Shows icons for each file in dired mode
 ;  auto-complete      20170125.245  installed             Auto Completion for GNU Emacs
@@ -17,17 +17,18 @@
 ;  yasnippet          20181015.1212 installed             Yet another snippet extension for Emacs.
 ;  yasnippet-snippets 20191009.625  installed             Collection of yasnippet snippets
 
-;   #+BEGIN_SRC emacs-lisp
-;     (defun list-packages-and-versions ()
-;       "Returns a list of all installed packages and their versions"
-;       (mapcar
-;	(lambda (pkg)
-;	  `(,pkg ,(package-desc-version
-;		     (cadr (assq pkg package-alist)))))
-;	package-activated-list))
-;
-;	(list-packages-and-versions)
-;   #+END_SRC
+;  #+BEGIN_SRC emacs-lisp
+;    (defun list-packages-and-versions ()
+;      "Returns a list of all installed packages and their versions"
+;      (mapcar
+;  	(lambda (pkg)
+;  	  `(,pkg ,(package-desc-version
+;  		     (cadr (assq pkg package-alist)))))
+;  	package-activated-list))
+;  
+;  	(list-packages-and-versions)
+;  #+END_SRC
+
 
 
 ;;; Commentary:
@@ -78,6 +79,35 @@
 ; activate powerline
 (require 'powerline)
 (powerline-default-theme)
+
+
+
+; activate ido-mode [[http://ergoemacs.org/emacs/emacs_ido_mode.html]]
+(ido-mode)
+
+
+
+; create fast buffer keybindings
+(defun switch-to-buffer-dashboard ()
+  "Switch to the *dashboard* Buffer, if open."
+  (interactive)
+  (switch-to-buffer (get-buffer "*dashboard*")))
+(defun switch-to-buffer-todos-org ()
+  "Switch to the ToDos.org Buffer, if open."
+  (interactive)
+  (switch-to-buffer (get-buffer "ToDos.org")))
+(defun switch-to-buffer-notes-org ()
+  "Switch to the Notes.org Buffer, if open."
+  (interactive)
+  (switch-to-buffer (get-buffer "Notes.org")))
+(defun switch-to-buffer-zeit-org ()
+  "Switch to the Zeit.org Buffer, if open."
+  (interactive)
+  (switch-to-buffer (get-buffer "Zeit.org")))
+(define-key global-map (kbd "C-0") 'switch-to-buffer-dashboard)
+(define-key global-map (kbd "C-1") 'switch-to-buffer-todos-org)
+(define-key global-map (kbd "C-2") 'switch-to-buffer-notes-org)
+(define-key global-map (kbd "C-3") 'switch-to-buffer-zeit-org)
 
 
 
