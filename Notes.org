@@ -81,6 +81,7 @@
   - screenfetch
   - ascii-patrol (sudo snap install ascii-patrol) kinda like moon-buggy
   - Tron (ssh sshtron.zachlatta.com)
+  - more here: [[https://www.linuxjournal.com/content/best-command-line-only-video-games][https://www.linuxjournal.com/content/best-command-line-only-video-games]]
   - nudoku
   - 2048-cli
   - [[https://myman.sourceforge.io/]]
