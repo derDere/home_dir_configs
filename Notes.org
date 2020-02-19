@@ -79,6 +79,7 @@
   - cmatrix
   - nsnake
   - screenfetch
+  - ascii-patrol (sudo snap install ascii-patrol) kinda like moon-buggy
   - Tron (ssh sshtron.zachlatta.com)
   - nudoku
   - 2048-cli
