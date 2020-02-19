@@ -79,6 +79,7 @@
   - cmatrix
   - nsnake
   - screenfetch
+  - Tron (ssh sshtron.zachlatta.com)
   - nudoku
   - 2048-cli
   - [[https://myman.sourceforge.io/]]
