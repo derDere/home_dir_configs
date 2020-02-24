@@ -44,6 +44,12 @@
 
 
 
+; setting erc nick padding
+(setq erc-fill-function 'erc-fill-static)
+(setq erc-fill-static-center 22)
+
+
+
 ; Hide Toolbar Menubar and Tooltips
 (if (display-graphic-p)
     (tool-bar-mode 0)
