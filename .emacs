@@ -44,6 +44,12 @@
 
 
 
+; Setting Emacs Window Alpha
+(set-frame-parameter (selected-frame) 'alpha 98)
+(add-to-list 'default-frame-alist '(alpha . (98 . 98)))
+
+
+
 ; setting erc nick padding
 (setq erc-fill-function 'erc-fill-static)
 (setq erc-fill-static-center 22)
@@ -89,10 +95,10 @@
 
 
 ; Tmux like window management
-(global-set-key (kbd "C-c <up>") 'windmove-up)
-(global-set-key (kbd "C-c <down>") 'windmove-down)
-(global-set-key (kbd "C-c <left>") 'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
+(define-key global-map (kbd "C-c <up>") 'windmove-up)
+(define-key global-map (kbd "C-c <down>") 'windmove-down)
+(define-key global-map (kbd "C-c <left>") 'windmove-left)
+(define-key global-map (kbd "C-c <right>") 'windmove-right)
 
 
 
@@ -276,6 +282,7 @@
  '((python . t)
    (js . t)
    (shell . t)
+   (sql . t)
    (emacs-lisp . t)))
 
 ; activate auto closed date creation on done todo
@@ -356,21 +363,28 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (wombat)))
+ '(beacon-color "#d33682")
+ '(custom-enabled-themes (quote (solarized-dark-high-contrast)))
+ '(custom-safe-themes
+   (quote
+    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "830877f4aab227556548dc0a28bf395d0abe0e3a0ab95455731c9ea5ab5fe4e1" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" default)))
  '(diff-hl-side (quote right))
+ '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(flymake-google-cpplint-command "/usr/local/bin/cpplint")
+ '(frame-background-mode (quote light))
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (powerline ac-php ac-math htmlize org-bullets all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
+    (solarized-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized powerline ac-php ac-math htmlize org-bullets all-the-icons all-the-icons-dired treemacs treemacs-magit dashboard magit hlinum flycheck google-c-style flymake-cursor flymake-google-cpplint iedit neotree auto-complete-c-headers yasnippet-snippets yasnippet auto-complete)))
  '(scroll-bar-mode nil)
- '(tooltip-mode nil))
+ '(tooltip-mode nil)
+ '(window-divider-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:foreground "khaki4" :slant italic)))))
 
 ;; mouse stuff
 (xterm-mouse-mode)
@@ -397,3 +411,54 @@
 (defun track-mouse (e))
 (setq mouse-sel-mode t)
 (setq mouse-wheel-follow-mouse 't)
+
+; fixing powerline and theme
+(custom-set-faces
+ '(default ((t (:foreground "#eeeeee" :slant normal)))))
+;(setq powerline-color1 "#FF00FF") ;doesent seem to do anything
+;(setq powerline-color2 "#00FF00") ;doesent seem to do anything
+(set-face-attribute 'mode-line nil
+                    :foreground "#ffffff"
+                    :background "#0087AF"
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :box nil)
+(powerline-reset)
+
+
+
+; EXWM
+(defun exwm-init-custom ()
+  "Inits EXWM and set custom settings."
+  (set-frame-parameter (selected-frame) 'alpha 75)
+  (add-to-list 'default-frame-alist '(alpha . (75 . 75)))
+  (server-start)
+  (require 'exwm)
+  (require 'exwm-config)
+  (exwm-config-default)
+  (setq exwm-workspace-number 4)
+  (add-hook 'exwm-update-class-hook
+	    (lambda ()
+	      (unless (or (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+			  (string= "gimp" exwm-instance-name))
+		(exwm-workspace-rename-buffer exwm-class-name))))
+  (add-hook 'exwm-update-title-hook
+	    (lambda ()
+	      (when (or (not exwm-instance-name)
+			(string-prefix-p "sun-awt-X11-" exwm-instance-name)
+			(string= "gimp" exwm-instance-name))
+		(exwm-workspace-rename-buffer exwm-title))))
+  (defun exwm-launch-terminal ()
+    (interactive)
+    (start-process "Terminal" "*TERM*" "urxvt"))
+  (defun exwm-launch-rofi-run ()
+    (interactive)
+    (start-process "Rofi" "*ROFI*" "rofi" "-show" "run"))
+  (define-key global-map (kbd "C-<return>") 'exwm-launch-terminal)
+  ;(define-key global-map (kbd "s-<return>") 'exwm-launch-terminal)
+  (define-key global-map (kbd "C-S-<return>") 'exwm-launch-rofi-run)
+  ;(define-key global-map (kbd "s-S-<return>") 'exwm-launch-rofi-run)
+  (exwm-init))
+(defvar exwm-is-running (string= (getenv "VISUAL") "emacsclient"))
+(if exwm-is-running
+    (exwm-init-custom))
