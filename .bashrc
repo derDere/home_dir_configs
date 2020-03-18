@@ -164,6 +164,9 @@ function measure-speed() {
 #fi
 
 
+# Add Org Dir Env
+export org=$HOME/org
+
 
 # Add this to your PATH if it’s not already declared
 export PATH=$PATH:$HOME/.local/bin

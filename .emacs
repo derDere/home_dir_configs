@@ -172,9 +172,14 @@
 ;; 'logo which displays an alternative emacs logo
 ;; 1, 2 or 3 which displays one of the text banners
 ;; "path/to/your/image.png" which displays whatever image you would prefer
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        ;(projects . 5)
+                        ;(registers . 5)
+                        (agenda . 25)))
 
 ;; Content is not centered by default. To center, set
-;(setq dashboard-center-content t)
+(setq dashboard-center-content t)
 
 ;; To disable shortcut "jump" indicators for each section, set
 (setq dashboard-show-shortcuts nil)
@@ -272,6 +277,23 @@
 (add-to-list 'ac-modes 'org-mode)
 
 
+
+; finding Org Folder
+(defvar ORG_DIR (getenv "org"))
+
+(when (> (length ORG_DIR) 0)
+    ; setting org default notes file
+    (setq org-default-notes-file (concat ORG_DIR "/ToDos.org"))
+    ; setting org agenda files
+    (setq org-agenda-files (list (concat ORG_DIR "/Notes.org")
+			     (concat ORG_DIR "/ToDos.org")))
+    ; setting org archive location
+    (setq org-archive-location (concat ORG_DIR
+				   "/Done/Done_"
+                                   (format-time-string "%Y" (current-time))
+                                   ".org_archive::")))
+
+
 ; Activates org-bullets-mode at org-mode
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -285,36 +307,21 @@
    (sql . t)
    (emacs-lisp . t)))
 
-; activate auto closed date creation on done todo
-(setq org-log-done 'time)
-
 ; org agenda key map
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-; finding Org Folder
-(defvar ORG_DIR (getenv "ORG"))
+; activate auto closed date creation on done todo
+(setq org-log-done 'time)
 
-; setting org default notes file
-(setq org-default-notes-file (concat ORG_DIR "/ToDos.org"))
-
-; add agenda files
-(defvar NOTES_LOCATION "F:/Users/Phillip/Documents/Notes.org")
-(if (not (file-exists-p NOTES_LOCATION))
-    (setq NOTES_LOCATION "~/Documents/Notes.org"))
-(setq org-agenda-files (list NOTES_LOCATION
-			     (concat ORG_DIR "/ToDos.org")))
-
-; setting org archive location
-(setq org-archive-location (concat ORG_DIR
-				   "/Done/Done_"
-                                   (format-time-string "%Y" (current-time))
-                                   ".org_archive::"))
 ; extending TODO states
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
 
 ; force utf-8 for org-exports
 (setq org-export-coding-system 'utf-8)
+
+
+
 
 ; org captures
 ;   org captures key map
@@ -328,6 +335,7 @@
 	(file+headline org-default-notes-file "Uncategorized")
 	"* TODO %?\n  %i\n  Source: %a") ; template
 	))
+
 
 
 ; prettyfy org mode

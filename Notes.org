@@ -117,10 +117,12 @@
 	python get-pip.py --user
 	rm get-pip.py
         #+END_SRC
+
      2. Powerline
 	#+BEGIN_SRC sh
 	$HOME/.local/bin/pip install --user powerline-status
 	#+END_SRC
+
   4. Configure Bash:
      Add at end of ~/.bashrc
      #+BEGIN_SRC sh
