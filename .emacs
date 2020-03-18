@@ -298,6 +298,9 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+;add categories to exports
+(setq org-export-with-properties t)
+
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages

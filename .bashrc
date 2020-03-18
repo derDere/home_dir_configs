@@ -165,7 +165,7 @@ function measure-speed() {
 
 
 # Add Org Dir Env
-export org=$HOME/org
+export org=$HOME/Org
 
 
 # Add this to your PATH if it’s not already declared
