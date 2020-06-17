@@ -163,3 +163,21 @@
   #+END_SRC
   [[https://askubuntu.com/questions/699579/ascii-screensaver-for-the-command-line-or-a-tui][Terminal Screensavers...]]
   [[https://gitlab.com/jallbrit/bonsai.sh][Bonsai screensaver...]]
+* Dotfiles Bare Repository
+[[https://harfangk.github.io/2016/09/18/manage-dotfiles-with-a-git-bare-repository.html][manage-dotfiles-with-a-git-bare-repository]]
+
+#+BEGIN_SRC shell
+git init --bare $HOME/.dotfiles.git
+echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
+source ~/.zshrc
+dotfiles config --local status.showUntrackedFiles no
+#+END_SRC
+
+#+BEGIN_SRC shell
+echo 'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"' >> $HOME/.zshrc
+source ~/.zshrc
+echo ".dotfiles.git" >> .gitignore
+git clone --bare https://www.github.com/username/repo.git $HOME/.dotfiles.git
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
+#+END_SRC
