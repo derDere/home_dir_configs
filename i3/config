@@ -199,6 +199,6 @@ bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures
 bindsym Control+Print exec gnome-screenshot -i
 
 exec --no-startup-id xrdb -load ~/.Xresources
-exec --no-startup-id xcompmgr -c -f -n
+exec --no-startup-id xcompmgr -c -n
 exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id ~/.config/i3/polybar.sh
